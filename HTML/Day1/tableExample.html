@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Example</title>
+    <style>
+        table{
+            width: 100%;
+            border: 1px solid rgb(255, 0, 0);
+        }
+
+        th{
+            border: 1px solid rgb(68, 255, 0);
+        }
+        td{
+            text-align: center;
+            border: 1px solid rgb(0, 0, 255);
+        }
+
+        tr:nth-child(even){
+            background-color: rgb(255, 255, 0);
+        }
+
+        tr:nth-child(odd){
+            background-color: rgba(0, 200, 255, 0.819);
+        }
+    
+    </style>
+
+</head>
+<body>
+    <table>
+        <tr>
+            <th width="25%">Name</th>
+            <th width="25%">Age</th>
+            <th width="25%">City</th>
+            <th width="25%">Phone</th>
+        </tr>
+        <tr>
+            <td>Ei Wai Lwin Htet</td>
+            <td>25</td>
+            <td>Yangon</td>
+            <td>09xxxxxxxxx</td>
+        </tr>
+        <tr>
+            <td>Aung Pyae Sone</td>
+            <td>15</td>
+            <td>Banmaw</td>
+            <td>09674000113</td>
+        </tr>
+    </table>
+</body>
+</html>
