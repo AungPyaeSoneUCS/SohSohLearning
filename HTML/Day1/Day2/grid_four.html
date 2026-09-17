@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Learn Page</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5f7ff, #eef7f0);
+        color: #1f2937;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px 60px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        margin: 0 0 10px;
+        font-size: 2.5rem;
+        color: #1d4ed8;
+      }
+
+      .header p {
+        margin: 0;
+        font-size: 1.05rem;
+        color: #4b5563;
+      }
+
+      /*
+        Why use Grid here?
+        We want the main content area to be arranged in rows and columns,
+        not just stacked one after another. Grid makes it easy to create
+        a modern, balanced layout with consistent spacing.
+      */
+      .grid-demo {
+        display: grid; /* Grid creates a 2D layout container. */
+        grid-template-columns: repeat(12, 1fr); /* 12 equal columns for a flexible page structure. */
+        gap: 16px; /* Space between card items to keep the layout clean and readable. */
+        margin-top: 30px;
+      }
+
+      .box {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 20px;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.08);
+        border: 1px solid #e5e7eb;
+      }
+
+      .box h3 {
+        margin-top: 0;
+        color: #111827;
+      }
+
+      .box p {
+        margin-bottom: 0;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+
+      /*
+        Why use grid-column span?
+        Different cards need different widths inside the 12-column layout.
+        This makes the layout look more natural and balanced.
+      */
+      .large {
+        grid-column: span 8; /* Use wide space for the main information card. */
+      }
+
+      .medium {
+        grid-column: span 4; /* Use medium width for a secondary content block. */
+      }
+
+      .small {
+        grid-column: span 3; /* Smaller cards fit nicely in a row with equal widths. */
+      }
+
+      /*
+        Why use Grid again for feature cards?
+        We want cards to automatically adjust to screen size while staying aligned.
+        auto-fit + minmax creates a responsive grid without writing a lot of code.
+      */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Fill as many columns as possible while keeping each card at least 220px wide. */
+        gap: 20px; /* Adds consistent space between feature cards. */
+        margin-top: 40px;
+      }
+
+      .feature {
+        background: linear-gradient(180deg, #eff6ff, #ffffff);
+        padding: 20px;
+        border-radius: 16px;
+        border: 1px solid #dbeafe;
+      }
+
+      .feature .icon {
+        width: 52px;
+        height: 52px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: #dbeafe;
+        font-size: 1.5rem;
+        margin-bottom: 14px;
+      }
+
+      .feature h4 {
+        margin: 0 0 10px;
+        font-size: 1.15rem;
+      }
+
+      .feature p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.6;
+      }
+
+      /*
+        Why use media queries with Grid?
+        On small screens, the grid should become single-column for readability.
+        This keeps the layout easy to read on mobile devices.
+      */
+      @media (max-width: 768px) {
+        .large,
+        .medium,
+        .small {
+          grid-column: span 12; /* Each card takes full width on small screens. */
+        }
+
+        .header h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Grid Learning Page</h1>
+        <p>Learn how CSS Grid helps create flexible and beautiful layouts.</p>
+      </header>
+
+      <section class="grid-demo">
+        <div class="box large">
+          <h3>What is Grid?</h3>
+          <p>
+            CSS Grid is a 2D layout system that helps place items in rows and columns.
+            It gives you full control over layout structure and responsive design.
+          </p>
+        </div>
+
+        <div class="box medium">
+          <h3>Example</h3>
+          <p>
+            Use grid-template-columns and grid-column to create balanced page sections.
+          </p>
+        </div>
+
+        <div class="box small">
+          <h3>Cells</h3>
+          <p>Each item can be placed in any grid position.</p>
+        </div>
+
+        <div class="box small">
+          <h3>Rows</h3>
+          <p>Rows can be set with equal or custom sizes.</p>
+        </div>
+
+        <div class="box small">
+          <h3>Gap</h3>
+          <p>Spacing between items is easy to control.</p>
+        </div>
+
+        <div class="box small">
+          <h3>Responsive</h3>
+          <p>Layouts adapt nicely on different screen sizes.</p>
+        </div>
+      </section>
+
+      <section class="feature-grid">
+        <article class="feature">
+          <div class="icon">📐</div>
+          <h4>Precise Layout</h4>
+          <p>Place content exactly where you want with rows and columns.</p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">📱</div>
+          <h4>Responsive Design</h4>
+          <p>Grid automatically changes to fit smaller screens and devices.</p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">⚡</div>
+          <h4>Fast Building</h4>
+          <p>Create modern page layouts faster with less code and more control.</p>
+        </article>
+
+        <article class="feature">
+          <div class="icon">🎨</div>
+          <h4>Beautiful UI</h4>
+          <p>Combine grid with colors, cards, and spacing to design rich interfaces.</p>
+        </article>
+      </section>
+    </div>
+  </body>
+</html>
