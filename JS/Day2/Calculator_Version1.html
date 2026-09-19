@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator1</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+      button {
+        margin-right: 5px;
+        margin-bottom: 10px;
+      }
+      #result {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        color: purple;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        border: 1px solid yellow;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+      }
+      .calculator {
+        background-color: #cfb43c;
+        padding: 20px;
+        border-radius: 10px;
+        width: 800px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="calculator">
+    <h1>Calculator</h1>
+    <label for="firstNumber">First Number:</label>
+    <input type="number" id="firstNumber" />
+    <br />
+    <label for="secondNumber">Second Number:</label>
+    <input type="number" id="secondNumber" />
+    <br />
+    <div>
+      <div>
+        <button onclick="add()">Add</button>
+        <button onclick="subtract()">Subtract</button>
+        <button onclick="multiply()">Multiply</button>
+        <button onclick="divide()">Divide</button>
+    
+        <button onclick="modulus()">Modulus</button>
+        <button onclick="exponent()">Exponent</button>
+        <button onclick="clearResult()">Clear</button>
+      </div>
+    </div>
+
+    <p id="result"></p>
+
+    </div>
+
+    <script>
+      function add() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = firstNumber + secondNumber;
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function subtract() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = firstNumber - secondNumber;
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function multiply() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = firstNumber * secondNumber;
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function divide() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = firstNumber / secondNumber;
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function modulus() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = firstNumber % secondNumber;
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function exponent() {
+        const firstNumber = parseFloat(
+          document.getElementById("firstNumber").value,
+        );
+        const secondNumber = parseFloat(
+          document.getElementById("secondNumber").value,
+        );
+        const result = Math.pow(firstNumber, secondNumber);
+        document.getElementById("result").textContent = "Result: " + result;
+      }
+
+      function clearResult() {
+        document.getElementById("result").textContent = "";
+      }
+    </script>
+  </body>
+</html>

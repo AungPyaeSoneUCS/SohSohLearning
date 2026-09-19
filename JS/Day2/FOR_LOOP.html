@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Loop </title>
+</head>
+<body>
+
+    <h1>For Loop</h1>
+    <label for="number">Enter a number:</label>
+    <input type="number" id="number" />
+
+    <button onclick="showNumber()">  Show </button>
+    <button onclick="showOther()">  Show Other </button>
+
+    <p id="message"></p>
+
+    <script>
+
+        function showNumber() {
+            let i = 100;
+            let number = document.getElementById("number").value;
+            let message = "";
+            for ( i ; i <= number; i++) {
+                message += i + " ";
+            }
+            document.getElementById("message").innerText = message ;
+        }
+
+
+        function showOther() {
+            let number = document.getElementById("number").value;
+            let message = "";
+            for ( i ; i <= number; i++) {
+                message += i + " ";
+            }
+            document.getElementById("message").innerText = message ;
+        }
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Loops</h1>
+<h2>The While Loop</h2>
+
+<input type="number" id="number" />
+<button onclick="whileLoop()">  While </button>
+<button onclick="forloop()">  For </button>
+<button onclick="doWhile()">  Do While </button>
+
+<p id="demo"></p>
+
+<script>
+    function forloop() {
+        let number = document.getElementById("number").value;
+        let message = "";
+        for (let i = 100; i <= number; i++) {
+            message += i + " ";
+        }
+        document.getElementById("demo").innerText = message ;
+    }
+
+    function whileLoop() {
+        let number = document.getElementById("number").value;
+        let message = "";
+        let i = 100;
+        while (i <= number) {
+            message += i + " ";
+            i++;
+        }
+
+        document.getElementById("demo").innerText = message ;
+    }
+
+    
+    function doWhile() {
+        let number = document.getElementById("number").value;
+        let message = "";
+        let i = 100;
+        do {
+            message += i + " ";
+            i++;
+        } while (i <= number);
+
+        document.getElementById("demo").innerText = message ;
+    }
+
+
+
+</script>
+
+</body>
+</html>
