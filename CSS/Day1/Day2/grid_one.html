@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 Calendar</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #eef6ff, #f9fbff);
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1f3a5f;
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+        }
+
+        .year {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .month {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(34, 76, 122, 0.12);
+            padding: 12px;
+            border: 1px solid #dfeaf7;
+        }
+
+        .month h2 {
+            margin: 0 0 12px;
+            text-align: center;
+            color: #1f3a5f;
+            font-size: 1.2rem;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .day-name,
+        .date {
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .day-name {
+            font-weight: bold;
+            color: #3d597d;
+            background: #edf5ff;
+        }
+
+        .date {
+            background: #f7fafe;
+            color: #254666;
+        }
+
+        .empty {
+            visibility: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>2026 Calendar</h1>
+    <div class="year" id="calendar"></div>
+
+    <script>
+        const monthNames = [
+            'January', 'February', 'March', 'April', 'May', 'June',
+            'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+
+        const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const calendar = document.getElementById('calendar');
+
+        for (let month = 0; month < 12; month++) {
+            const monthCard = document.createElement('div');
+            monthCard.className = 'month';
+
+            const title = document.createElement('h2');
+            title.textContent = monthNames[month];
+            monthCard.appendChild(title);
+
+            const daysGrid = document.createElement('div');
+            daysGrid.className = 'days';
+
+            dayNames.forEach(day => {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'day-name';
+                dayCell.textContent = day;
+                daysGrid.appendChild(dayCell);
+            });
+
+            const firstDay = new Date(2026, month, 1).getDay();
+            const totalDays = new Date(2026, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDay; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'date empty';
+                emptyCell.textContent = '';
+                daysGrid.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= totalDays; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'date';
+                dayCell.textContent = day;
+                daysGrid.appendChild(dayCell);
+            }
+
+            const totalCells = 42;
+            const filledCells = firstDay + totalDays;
+
+            for (let i = filledCells; i < totalCells; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'date empty';
+                emptyCell.textContent = '';
+                daysGrid.appendChild(emptyCell);
+            }
+
+            monthCard.appendChild(daysGrid);
+            calendar.appendChild(monthCard);
+        }
+    </script>
+</body>
+
+</html>

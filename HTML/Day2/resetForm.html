@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Form</title>
+</head>
+
+<body>
+    <form action="Fruit.html" method="get">
+
+        <div>
+
+            <label for="Name"> what is your name? </label>
+            <input type="text" id="Name" name="Name" required>
+        </div>
+        <div>
+            <label for="Age"> what is your age? </label>
+            <input type="number" id="Age" name="Age" value="26" disabled>
+        </div>
+
+        
+        <div>
+            <label for="Fruit"> Choose the Fruit I like </label>
+            <select name="Fruit" id="Fruit" size="2" multiple>
+                <option value="Apple">Apple</option>
+                <option value="Orange">Orange</option>
+                <option value="Mango">Mango</option>
+                <option value="Banana">Banana</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="What is your favorite color?"> What is your favorite color? </label>
+            <input type="checkbox" id="What is your favorite color?" name="What is your favorite color?" value="Red"> Red
+            <input type="checkbox" id="What is your favorite color?" name="What is your favorite color?" value="Green"> Green
+            <input type="checkbox" id="What is your favorite color?" name="What is your favorite color?" value="Blue"> Blue
+            <input type="checkbox" id="What is your favorite color?" name="What is your favorite color?" value="Yellow"> Yellow
+            <input type="checkbox" id="What is your favorite color?" name="What is your favorite color?" value="Pink"> Pink
+        </div>
+
+        <div>
+            <label for="Gender"> What is your gender? </label>
+            <input type="radio" id="Gender" name="Gender" value="Male">
+            <label for="Male">Male</label>
+            <input type="radio" id="Gender" name="Gender" value="Female">
+            <label for="Female">Female</label>
+        </div>
+
+        <div>
+            <label for="Country"> What is your country? </label>
+            <select name="Country" id="Country">
+                <option value="Myanmar">Myanmar</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Malaysia">Malaysia</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="Comment"> Comment: </label>
+            <textarea id="Comment" name="Comment" rows="4" cols="50"></textarea>
+        </div>
+
+        <div>
+            <label for="File"> Upload a file: </label>
+            <input type="file" id="File" name="File">
+        </div>
+
+        <div>
+            <label for="Date"> Choose your Birthday: </label>
+            <input type="date" id="Date" name="Date">
+        </div>
+
+        <div>
+            <label for="Time"> Choose your Time: </label>
+            <input type="time" id="Time" name="Time">
+        </div>
+
+        <div>
+            <label for="Color"> Choose your favorite color: </label>
+            <input type="color" id="Color" name="Color">
+        </div>
+
+        <button type="submit">Select</button>
+        <button type="reset">Reset</button>
+    </form>
+
+</body>
+
+</html>

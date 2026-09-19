@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Deep Learning Example</title>
+    <style>
+        /* Make width and height calculations easier to understand. */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Set the page font, spacing, and a simple background. */
+        body {
+            margin: 0;
+            padding: 32px;
+            font-family: Arial, sans-serif;
+            background: #eef2f7;
+            color: #172033;
+        }
+
+        /* Keep the lesson content centered and readable on large screens. */
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Add space below the heading before the grid begins. */
+        h1 {
+            margin: 0 0 8px;
+        }
+
+        /* Use a softer color for supporting text. */
+        .intro {
+            margin: 0 0 24px;
+            color: #536174;
+        }
+
+        /*
+           display: grid turns this element into a grid container.
+           The container controls the position of its direct children.
+        */
+        .dashboard {
+            display: grid;
+
+            /* Create three equal columns. 1fr means one fraction of free space. */
+            grid-template-columns: repeat(3, 1fr);
+
+            /* Create automatic rows with a minimum height of 150px. */
+            grid-auto-rows: minmax(150px, auto);
+
+            /* Add 20px between every row and column. */
+            gap: 20px;
+        }
+
+        /* Style every direct grid item. */
+        .panel {
+            padding: 24px;
+            border: 1px solid #d6deea;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 8px 18px rgba(23, 32, 51, 0.08);
+        }
+
+        /* Make the first panel use all three columns. */
+        .header {
+            grid-column: 1 / -1;
+            background: #172033;
+            color: #ffffff;
+        }
+
+        /* Make this panel start at column 1 and stretch down across two rows. */
+        .main-content {
+            grid-column: 1 / 3;
+            grid-row: span 2;
+        }
+
+        /* Place this item in the third column. */
+        .sidebar {
+            grid-column: 3;
+            background: #dff3ee;
+        }
+
+        /* Place this item in the third column of the next available row. */
+        .statistics {
+            grid-column: 3;
+            background: #fff2cc;
+        }
+
+        /* Use a nested grid to create two equal cards inside the main panel. */
+        .mini-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        /* Style each nested grid item. */
+        .mini-card {
+            padding: 16px;
+            border-left: 4px solid #2d6cdf;
+            background: #edf3ff;
+        }
+
+        /* Remove the default top margin from headings inside panels. */
+        h2,
+        h3 {
+            margin-top: 0;
+        }
+
+        /* Keep paragraphs comfortable to read. */
+        p,
+        li {
+            line-height: 1.6;
+        }
+
+        /* Change the layout to one column on smaller screens. */
+        @media (max-width: 700px) {
+            body {
+                padding: 18px;
+            }
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            /* Reset desktop placement so items naturally stack on mobile. */
+            .header,
+            .main-content,
+            .sidebar,
+            .statistics {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .mini-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <!-- This heading introduces the concepts shown in the grid. -->
+        <h1>CSS Grid Dashboard</h1>
+        <p class="intro">Inspect the CSS comments and connect each rule to the layout.</p>
+
+        <!-- This element is the grid container; its direct children are grid items. -->
+        <section class="dashboard">
+            <!-- grid-column: 1 / -1 makes this item span from the first to the last column. -->
+            <header class="panel header">
+                <h2>Grid Container</h2>
+                <p>The header spans all three columns by using the grid line values 1 and -1.</p>
+            </header>
+
+            <!-- This item spans two columns and two automatically created rows. -->
+            <article class="panel main-content">
+                <h2>Main Content</h2>
+                <p>
+                    Grid layouts are built from columns and rows. The parent defines the grid,
+                    while child items can choose where they start and how far they span.
+                </p>
+
+                <!-- This is a second, independent grid inside the main grid item. -->
+                <div class="mini-grid">
+                    <div class="mini-card">
+                        <h3>Columns</h3>
+                        <p><strong>1fr 1fr</strong> creates two equal columns.</p>
+                    </div>
+                    <div class="mini-card">
+                        <h3>Gap</h3>
+                        <p><strong>gap: 12px</strong> creates space between nested items.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- This item is explicitly positioned in column 3. -->
+            <aside class="panel sidebar">
+                <h2>Sidebar</h2>
+                <p>This panel uses <strong>grid-column: 3</strong>.</p>
+            </aside>
+
+            <!-- This item also uses column 3 and fills the next available row. -->
+            <aside class="panel statistics">
+                <h2>Statistics</h2>
+                <ul>
+                    <li>3 columns</li>
+                    <li>20px gap</li>
+                    <li>Responsive layout</li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>

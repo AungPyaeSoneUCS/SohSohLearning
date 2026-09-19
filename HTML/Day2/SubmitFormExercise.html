@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitting Form</title>
+</head>
+<body>
+    <h1>Personal Information</h1>
+    <p>Name: <span id="displayName"></span></p>
+    <p>Age: <span id="displayAge"></span></p>
+    <p>Gender: <span id="displayGender"></span></p>
+    <p>Photo: <span id="displayPhoto"></span></p>
+    <p>Birthday: <span id="displayBirthday"></span></p>
+    <p>Time: <span id="displayTime"></span></p>
+    <p>Country: <span id="displayCountry"></span></p>
+    <p>About Yourself: <span id="displayAbout"></span></p>
+    <p>Favorite Color: <span id="displayColor"></span></p>
+    <p>Favorite Programming Language: <span id="displayPl"></span></p>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('displayName').textContent = params.get('name');
+        document.getElementById('displayAge').textContent = params.get('age');
+        document.getElementById('displayGender').textContent = params.get('gender');
+        document.getElementById('displayPhoto').textContent = params.get('photo');
+        document.getElementById('displayBirthday').textContent = params.get('birthday');
+        document.getElementById('displayTime').textContent = params.get('time');
+        document.getElementById('displayCountry').textContent = params.get('country');
+        document.getElementById('displayAbout').textContent = params.get('about');
+        document.getElementById('displayColor').textContent = params.get('color');
+        document.getElementById('displayPl').textContent = params.get('pl');
+    </script>
+</body>
+</html>

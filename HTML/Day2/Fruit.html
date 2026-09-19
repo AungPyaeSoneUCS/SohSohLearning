@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Action Page</title>
+
+    <style>
+        h1,
+        p {
+            color: greenyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Form Submission Results</h1>
+    <p>Fruit: <span id="displayFruit"></span></p>
+
+
+    <script>
+        // Get the query string from the current URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Retrieve values using the input "name" attributes
+        const fruitValue = params.getAll('Fruit');
+
+        // Display the values on the page
+        document.getElementById('displayFruit').textContent = fruitValue;
+    </script>
+</body>
+
+</html>

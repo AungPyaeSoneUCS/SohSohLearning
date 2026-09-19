@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Action Page</title>
+
+    <style>
+        h1, p{
+            color: greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Form Submission Results</h1>
+    <p>Name: <span id="displayName"></span></p>
+    <p>Password: <span id="displayPassword"></span></p>
+
+
+
+    <script>
+        // Get the query string from the current URL
+        const params = new URLSearchParams(window.location.search);
+
+        // Retrieve values using the input "name" attributes
+        const nameValue = params.get('name');
+        const passwordValue = params.get('password');
+
+        // Display the values on the page
+        document.getElementById('displayName').textContent = nameValue;
+        document.getElementById('displayPassword').textContent = passwordValue;
+    </script>
+</body>
+</html>
