@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Fruits</title>
+</head>
+<body>
+    <h1>Selected Fruits:</h1>
+    <ul id="fruitList"></ul>
+
+    <script>
+        // Extract the query parameters from the URL
+        const params = new URLSearchParams(window.location.search);
+
+        // getAll() collects EVERY selected option with name="Fruit"
+        const selectedFruits = params.getAll('Fruit');
+
+        const listContainer = document.getElementById('fruitList');
+
+        if (selectedFruits.length > 0) {
+            selectedFruits.forEach(fruit => {
+                const li = document.createElement('li');
+                li.textContent = fruit;
+                listContainer.appendChild(li);
+            });
+        } else {
+            listContainer.innerHTML = '<li>No fruits selected.</li>';
+        }
+    </script>
+</body>
+</html>
